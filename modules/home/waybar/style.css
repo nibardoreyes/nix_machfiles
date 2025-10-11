@@ -1,0 +1,141 @@
+* {
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 14px; /* Increased font size */
+  min-height: 0;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 0px;
+}
+
+#waybar {
+  background: transparent;
+  color: #a4c8d6; /* special.foreground */
+  margin: 2px 2px;
+}
+
+#workspaces {
+  border-radius: 5px;
+  margin: 5px;
+  background: transparent;
+  margin-left: 2px;
+}
+
+#workspaces button {
+  color: #5b7588; /* colors.color5 */
+  border-radius: 5px;
+  padding: 0.4rem;
+  background: transparent;
+}
+
+#workspaces button.active {
+  color: #a44a48; /* colors.color4 */
+  border-radius: 5px;
+  background: transparent;
+}
+
+button {
+  background: transparent;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  border: 0px solid transparent;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#custom-lock,
+#custom-power,
+#custom-weather,
+#custom-uptime,
+#custom-docker {
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#clock {
+  color: #a4c8d6; /* colors.color7 */
+  border-radius: 5px;
+  background: transparent;
+}
+
+#custom-weather {
+  color: #a4c8d6; /* colors.color7 */
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  background: transparent;
+}
+
+#battery {
+  color: #495d72; /* colors.color2 */
+  background: transparent;
+}
+
+#battery.charging {
+  color: #495d72; /* colors.color2 */
+  background: transparent;
+}
+
+#battery.warning:not(.charging) {
+  color: #a44a48; /* colors.color3 */
+  background: transparent;
+}
+
+#backlight {
+  color: #708a9a; /* colors.color6 */
+  background: transparent;
+}
+
+#backlight,
+#battery {
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: #a44a48; /* colors.color3 */
+  border-radius: 5px 0px 0px 5px;
+  background: transparent;
+}
+
+#custom-docker {
+  color: #3a6b84; /* colors.color4 */
+  background: transparent;
+}
+
+#custom-music {
+  color: #5b7588; /* colors.color5 */
+  border-radius: 5px;
+  background: transparent;
+}
+
+#custom-lock {
+  color: #5b7588; /* colors.color5 */
+  background: transparent;
+}
+
+#custom-power {
+  margin-right: 1rem;
+  border-radius: 0px 5px 5px 0px;
+  color: #a44a48; /* colors.color3 */
+  background: transparent;
+}
+
+#idle_inhibitor {
+  color: #5b7588; /* same as others when off */
+  background: transparent;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#idle_inhibitor.activated {
+  color: #a44a48; /* match volume red */
+}

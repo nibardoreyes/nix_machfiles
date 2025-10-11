@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -117,7 +117,14 @@
    fastfetch
    git
    bat
+   yazi
   ];
+  
+  # Fonts
+  fonts.fonts = with pkgs; [
+     nerd-fonts.jetbrains-mono
+  ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

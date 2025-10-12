@@ -89,9 +89,28 @@ boot.loader = {
     yazi
     swww
     lazygit
+    xfce.thunar
+    xfce.thunar-volman  # Removable device management
+    xfce.thunar-archive-plugin  # Archive support
+    xfce.thunar-media-tags-plugin  # Media file tags
     # Add any packages from your other list here
   ];
   
+# Enable Thunar services for better integration
+programs.thunar = {
+  enable = true;
+  plugins = with pkgs.xfce; [
+    thunar-volman
+    thunar-archive-plugin
+    thunar-media-tags-plugin
+  ];
+};
+
+# Enable thumbnail support
+services.tumbler.enable = true;
+
+# Enable GVFS for trash, network shares, etc.
+services.gvfs.enable = true;  
   # --- Fonts ---
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

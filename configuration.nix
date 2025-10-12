@@ -109,6 +109,8 @@ boot.loader = {
     kora-icon-theme
     bibata-cursors
     fzf
+    vscode
+    brightnessctl
   ];
   
 # Enable Thunar services for better integration

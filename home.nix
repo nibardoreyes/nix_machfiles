@@ -5,6 +5,7 @@
       ./sh.nix
       ./modules/home/kitty
       ./modules/home/hyprland
+      ./modules/home/hyprlock
       ./modules/home/waybar
       ./modules/home/fastfetch
       ./modules/home/starship

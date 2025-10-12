@@ -108,6 +108,7 @@ boot.loader = {
     orchis-theme
     kora-icon-theme
     bibata-cursors
+    fzf
   ];
   
 # Enable Thunar services for better integration

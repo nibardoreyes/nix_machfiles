@@ -9,7 +9,8 @@
       ./modules/home/waybar
       ./modules/home/fastfetch
       ./modules/home/starship
-      ./modules/home/matugen
+      #./modules/home/matugen
+      ./modules/home/nvim
    ];
    
   # Home Manager needs a bit of information about you and the paths it should

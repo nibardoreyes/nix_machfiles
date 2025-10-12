@@ -1,141 +1,165 @@
+/* fragile file path */
+@import url("../../.cache/wal/colors-waybar.css");
+
+/* Use Pywal16 colors  */
+@define-color fg alpha(@background, 1.0);
+@define-color bg alpha(@foreground, 1.0);
+@define-color bordercolor alpha(@background, 1.0);
+@define-color alert #F14241;
+@define-color disabled #A5A5A5;
+@define-color highlight #D49621;
+@define-color activegreen #26A65B;
+
 * {
-  font-family: JetbrainsMono Nerd Font;
-  font-size: 14px; /* Increased font size */
   min-height: 0;
-  padding-right: 2px;
-  padding-left: 2px;
-  padding-bottom: 0px;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem; /* Adjust font using gtk-font size, like nwg-look or lxappearance */
 }
 
-#waybar {
-  background: transparent;
-  color: #a4c8d6; /* special.foreground */
-  margin: 2px 2px;
+window#waybar {
+  color: @fg;
+  background-color: @bg;
+  background: none;
 }
-
+#window,
 #workspaces {
-  border-radius: 5px;
-  margin: 5px;
-  background: transparent;
-  margin-left: 2px;
+  color: @bordercolor;
+  background-color: @bg;
+  border: 0.1rem solid @bordercolor;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  margin: 0.1rem;
 }
-
 #workspaces button {
-  color: #5b7588; /* colors.color5 */
-  border-radius: 5px;
-  padding: 0.4rem;
-  background: transparent;
+  color: @bordercolor;
+  background-color: @bg;
+  border: 0rem solid @bordercolor;
+  padding: 0.1rem;
+  margin: 0.1rem;
 }
 
-#workspaces button.active {
-  color: #a44a48; /* colors.color4 */
-  border-radius: 5px;
-  background: transparent;
-}
-
-button {
-  background: transparent;
-}
-
-#workspaces button:hover {
-  background: transparent;
-  border: 0px solid transparent;
-}
-
-#custom-music,
-#tray,
-#backlight,
 #clock,
+#cava,
 #battery,
-#pulseaudio,
-#network,
+#bluetooth,
 #cpu,
 #memory,
-#custom-lock,
-#custom-power,
-#custom-weather,
-#custom-uptime,
-#custom-docker {
-  background-color: transparent;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-}
-
-#clock {
-  color: #a4c8d6; /* colors.color7 */
-  border-radius: 5px;
-  background: transparent;
-}
-
-#custom-weather {
-  color: #a4c8d6; /* colors.color7 */
-  margin-left: 0.5rem;
-  border-radius: 5px;
-  background: transparent;
-}
-
-#battery {
-  color: #495d72; /* colors.color2 */
-  background: transparent;
-}
-
-#battery.charging {
-  color: #495d72; /* colors.color2 */
-  background: transparent;
-}
-
-#battery.warning:not(.charging) {
-  color: #a44a48; /* colors.color3 */
-  background: transparent;
-}
-
-#backlight {
-  color: #708a9a; /* colors.color6 */
-  background: transparent;
-}
-
+#disk,
+#temperature,
+#language,
 #backlight,
-#battery {
-  border-radius: 0;
+#backlight-slider,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#taskbar,
+#tray,
+#tray menu,
+#tray > .needs-attention,
+#tray > .passive,
+#tray > .active,
+#mode,
+#scratchpad,
+#custom-notification,
+#custom-temp,
+#custom-wifi,
+#custom-kdeconnect,
+#custom-bluetooth,
+#custom-power,
+#custom-separator,
+#custom-group,
+#idle_inhibitor,
+#window,
+#mpd {
+  color: @bordercolor;
+  background-color: @bg;
+  border: 0.1rem solid @bordercolor;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  margin: 0.1rem;
 }
 
-#pulseaudio {
-  color: #a44a48; /* colors.color3 */
-  border-radius: 5px 0px 0px 5px;
-  background: transparent;
+#bluetooth {
+  color: @bordercolor;
+  background-color: @color1;
+}
+#battery,
+#network {
+  color: @bordercolor;
+  background-color: @color2;
+}
+#cpu {
+  color: @bordercolor;
+  background-color: @color3;
+}
+#memory {
+  color: @bordercolor;
+  background-color: @color4;
+}
+#temperature {
+  color: @bordercolor;
+  background-color: @color5;
+}
+#custom-notification,
+#backlight {
+  color: @bordercolor;
+  background-color: @color6;
+}
+#pulseaudio,
+#wireplumber {
+  color: @bordercolor;
+  background-color: @color3;
+}
+#clock {
+  color: @bordercolor;
+  background-color: @color9;
 }
 
-#custom-docker {
-  color: #3a6b84; /* colors.color4 */
-  background: transparent;
+#workspaces,
+#workspaces button {
+  color: @bordercolor;
+  background-color: @color4;
 }
-
-#custom-music {
-  color: #5b7588; /* colors.color5 */
-  border-radius: 5px;
-  background: transparent;
-}
-
-#custom-lock {
-  color: #5b7588; /* colors.color5 */
-  background: transparent;
-}
-
-#custom-power {
-  margin-right: 1rem;
-  border-radius: 0px 5px 5px 0px;
-  color: #a44a48; /* colors.color3 */
-  background: transparent;
-}
-
+#tray,
+#tray menu,
+#tray > .needs-attention,
+#tray > .passive,
+#tray > .active,
+#custom-wifi,
+#custom-kdeconnect,
+#custom-bluetooth,
+#custom-power,
+#custom-group,
 #idle_inhibitor {
-  color: #5b7588; /* same as others when off */
-  background: transparent;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-  border-radius: 5px 0px 0px 5px;
+  color: @bordercolor;
+  background-color: @color5;
+  border: 0rem solid @bordercolor;
+}
+#window {
+  color: @bordercolor;
+  background-color: @color6;
 }
 
-#idle_inhibitor.activated {
-  color: #a44a48; /* match volume red */
+#custom-group {
+  border: 0.1rem solid @bordercolor;
+}
+
+#custom-separator {
+  color: @disabled;
+}
+
+#network.disconnected,
+#pulseaudio.muted,
+#wireplumber.muted {
+  background-color: @alert;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: @activegreen;
+}
+
+label:focus {
+  background-color: @bg;
 }

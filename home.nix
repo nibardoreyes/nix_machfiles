@@ -2,7 +2,7 @@
 
 { 
    imports = [
-      ./sh.nix
+      ./modules/home/shell
       ./modules/home/kitty
       ./modules/home/hyprland
       ./modules/home/hyprlock

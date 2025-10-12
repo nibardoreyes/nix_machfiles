@@ -7,8 +7,17 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.systemd-boot.enable = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";       # Required for UEFI systems
+      useOSProber = true;     # Detect Windows or other OSes
+    };
+    efi.canTouchEfiVariables = true;
+  };
+  
   
   # I use zsh btw
   environment.shells = with pkgs; [ zsh fish ];
@@ -49,8 +58,15 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
+  
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin";
+  };
+  services.displayManager.defaultSession = "hyprland";
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -96,7 +112,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   #services.displayManager.defaultSession = "hyprland";
   programs.hyprland.enable = true;
 
@@ -119,10 +135,11 @@
    bat
    yazi
    swww
+   lazygit
   ];
   
   # Fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
      nerd-fonts.jetbrains-mono
   ];
 

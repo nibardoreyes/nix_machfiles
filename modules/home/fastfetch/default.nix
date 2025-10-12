@@ -1,29 +1,23 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs, lib, ... }:
 
-pkgs.stdenv.mkDerivation {
-  pname = "fastfetch-config";
-  version = "1.0";
+let
+  fastfetchConfigDir = builtins.toString ./.;
+in
+{
+  home.packages = with pkgs; [
+    fastfetch
+  ];
 
-  # No sources needed, just config files
-  src = ./.;
-
-  buildInputs = [ pkgs.fastfetch ];
-
-  installPhase = ''
-    mkdir -p $out/.config/fastfetch/pngs
-    mkdir -p $out/.config/fastfetch
-
-    # Copy your config.jsonc
-    cp ${./config.jsonc} $out/.config/fastfetch/config.jsonc
-
-    # Copy all PNGs (optional)
-    cp -r ${./pngs}/* $out/.config/fastfetch/pngs/
-  '';
-
-  meta = with pkgs.lib; {
-    description = "Fastfetch configuration for Nibardo";
-    license = licenses.mit;
-    maintainers = [ maintainers.nibardo ];
+  # Optional: tell Fastfetch where to find your config
+  home.sessionVariables = {
+    FASTFETCH_CONFIG = "${fastfetchConfigDir}/config.jsonc";
   };
+
+  # Link config.jsonc
+  home.file.".config/fastfetch/config.jsonc".source = "${fastfetchConfigDir}/config.jsonc";
+
+  # Link PNGs folder (for logos)
+  home.file.".config/fastfetch/pngs".source = "${fastfetchConfigDir}/pngs";
+  home.file.".config/fastfetch/pngs".recursive = true;
 }
 

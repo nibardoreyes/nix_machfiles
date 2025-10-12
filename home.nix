@@ -6,6 +6,9 @@
       ./modules/home/kitty
       ./modules/home/hyprland
       ./modules/home/waybar
+      ./modules/home/fastfetch
+      ./modules/home/starship
+      ./modules/home/matugen
    ];
    
   # Home Manager needs a bit of information about you and the paths it should
@@ -64,4 +67,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  
+  programs.starship.enable = true;
+
 }

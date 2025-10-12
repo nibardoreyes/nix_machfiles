@@ -118,6 +118,7 @@
    git
    bat
    yazi
+   swww
   ];
   
   # Fonts

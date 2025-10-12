@@ -3,6 +3,7 @@ let
    myAliases = {
      ll = "ls -l";
      ".." = "cd ..";
+     ff = "fastfetch";
    };
 in
 {

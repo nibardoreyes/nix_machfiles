@@ -70,5 +70,42 @@
   programs.home-manager.enable = true;
   
   programs.starship.enable = true;
+  
+
+  gtk = {
+    enable = true;
+    
+    theme = {
+      name = "Orchis-Dark";
+      package = pkgs.orchis-theme;
+    };
+    
+    iconTheme = {
+      name = "kora";
+      package = pkgs.kora-icon-theme;
+    };
+    
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+    };
+    
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+  
+  # Also set cursor for Hyprland
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
 
 }

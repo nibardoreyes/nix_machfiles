@@ -89,11 +89,25 @@ boot.loader = {
     yazi
     swww
     lazygit
+    eza
+    pywal
+    imagemagick
+    #For thunar
     xfce.thunar
     xfce.thunar-volman  # Removable device management
     xfce.thunar-archive-plugin  # Archive support
     xfce.thunar-media-tags-plugin  # Media file tags
-    # Add any packages from your other list here
+    # GTK themes
+    adwaita-icon-theme  # Default GNOME icons
+    papirus-icon-theme  # Popular icon theme
+    arc-theme
+    dracula-theme
+    catppuccin-gtk
+    nwg-look
+    nordic
+    orchis-theme
+    kora-icon-theme
+    bibata-cursors
   ];
   
 # Enable Thunar services for better integration

@@ -1,47 +1,31 @@
-{ config, pkgs, ... }:
-
+# configuration.nix
+{ config, pkgs, lib, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       /etc/nixos/hardware-configuration.nix
     ];
-
-  # Bootloader.
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";       # Required for UEFI systems
-      useOSProber = true;     # Detect Windows or other OSes
-    };
-    efi.canTouchEfiVariables = true;
-  };
   
+  # --- Bootloader ---
+boot.loader = {
+  systemd-boot.enable = lib.mkForce true;
+  efi.canTouchEfiVariables = true;
+  grub.enable = lib.mkForce false;
+  grub.device = lib.mkForce "nodev";
+};
   
-  # I use zsh btw
+  # --- Shells ---
   environment.shells = with pkgs; [ zsh fish ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
+  
+  # --- Hostname & networking ---
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Set your time zone.
+  
+  # --- Locale & Timezone ---
   time.timeZone = "America/Phoenix";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -53,31 +37,18 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # Enable the X11 windowing system.
+  
+  # --- X11 / Display manager / Desktop ---
   services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
-  
-  services.displayManager.sddm = {
-    enable = true;
-    theme = "catppuccin";
-  };
   services.displayManager.defaultSession = "hyprland";
-
-
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
+  
+  # --- Sound ---
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -85,91 +56,51 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  
+  # --- Users ---
   users.users.nibardo = {
     isNormalUser = true;
-    description = "nibardo";
+    description = "Nibardo";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
     shell = pkgs.zsh;
+    packages = with pkgs; [];
   };
-
-  # Install firefox.
+  
+  # --- Programs ---
   programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  #services.displayManager.defaultSession = "hyprland";
   programs.hyprland.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  
+  # --- Packages --- (ONLY ONE DEFINITION!)
   environment.systemPackages = with pkgs; [
-   vim
-   btop
-   neovim
-   wget
-   firefox
-   gedit
-   hyprland
-   kitty
-   waybar
-   rofi
-   nwg-look
-   fastfetch
-   git
-   bat
-   yazi
-   swww
-   lazygit
+    vim
+    neovim
+    btop
+    wget
+    gedit
+    hyprland
+    kitty
+    waybar
+    rofi
+    nwg-look
+    fastfetch
+    git
+    bat
+    yazi
+    swww
+    lazygit
+    # Add any packages from your other list here
   ];
   
-  # Fonts
+  # --- Fonts ---
   fonts.packages = with pkgs; [
-     nerd-fonts.jetbrains-mono
+    nerd-fonts.jetbrains-mono
   ];
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
-
+  
+  # --- Nix settings ---
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+  
+  # --- System state version ---
+  system.stateVersion = "25.05";
 }
-

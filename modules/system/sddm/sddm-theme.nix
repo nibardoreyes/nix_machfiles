@@ -6,7 +6,7 @@
     sugarCandyNix = {
       enable = true;
       settings = {
-        Background = lib.cleanSource ./Backgrounds/pywal.jpg;
+        Background = lib.cleanSource ./Backgrounds/steel.jpg;
         ScreenWidth = 1920;
         ScreenHeight = 1080;
         FormPosition = "left";

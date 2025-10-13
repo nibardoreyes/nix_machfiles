@@ -41,7 +41,7 @@ boot.loader = {
   # --- X11 / Display manager / Desktop ---
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = false;
-  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.desktopManager.gnome.enable = true;
   services.displayManager.defaultSession = "hyprland";
   services.xserver.xkb = {
     layout = "us";
@@ -114,6 +114,7 @@ boot.loader = {
     mpv
     tree
     wofi
+    obsidian
     swaynotificationcenter
     gvfs
     libnotify

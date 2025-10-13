@@ -1,0 +1,5 @@
+smalle isue i would like a text box at the top of the apps, it should match the aesthetic ie dark background and white text, also rofi doesnt seem to have a border when i open it , it should and the corners should be rounded just like the windows in hyprland
+
+
+
+- should be abot to go right ot a new window even if it doesnt exist yet

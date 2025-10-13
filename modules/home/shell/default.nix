@@ -7,6 +7,7 @@ let
      ls = "eza -l --icons=always";
      la = "eza -la --icons=always";
      lt = "eza --tree --icons=always";
+     e = "yazi";
    };
 in
 {

@@ -10,6 +10,9 @@
       ./modules/home/starship
       #./modules/home/matugen
       ./modules/home/nvim
+      ./modules/home/swaync
+      ./modules/home/wofi
+      ./modules/home/rofi
    ];
    
   home.username = "nibardo";

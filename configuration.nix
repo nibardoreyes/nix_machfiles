@@ -112,6 +112,12 @@ boot.loader = {
     vscode
     brightnessctl
     mpv
+    tree
+    wofi
+    swaynotificationcenter
+    gvfs
+    libnotify
+    wlogout
     # Volume control
     pavucontrol      # GUI volume control
     playerctl        # Media player control (you're already using this)

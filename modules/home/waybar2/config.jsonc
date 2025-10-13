@@ -11,17 +11,11 @@
 
   // Choose the order of the modules
 
-  "modules-left": ["clock", "hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["clock"],
 
-  "modules-center": [],
+  "modules-center": ["hyprland/workspaces"],
 
   "modules-right": [
-    "custom/notification",
-    "bluetooth",
-    "network",
-    "cpu",
-    "memory",
-    "temperature",
     "backlight",
     "wireplumber",
     "battery",

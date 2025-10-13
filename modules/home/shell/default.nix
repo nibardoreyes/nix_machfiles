@@ -25,6 +25,13 @@ in
      initContent = ''  # Changed from initExtra
        # Import colorscheme from 'wal' asynchronously
        (cat ~/.cache/wal/sequences &)
+       # Dev environment templates
+       newpy() {
+         cp ~/nixos_machfiles/templates/python-flake.nix ./flake.nix
+         echo "use flake" > .envrc
+         direnv allow
+         echo "✨ Python project initialized!"
+       }
      '';
   };  
 }

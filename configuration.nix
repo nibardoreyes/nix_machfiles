@@ -119,7 +119,20 @@ boot.loader = {
     bluez            # Bluetooth stack
     bluez-tools      # Bluetooth utilities
     blueman          # Bluetooth GUI manager
+    gcc
+    gnumake
+    cmake
+    pkg-config
+    # General development
+    direnv  # Auto-load dev environments
+    nix-direnv  # Better direnv for Nix
   ];
+
+  # Enable direnv for automatic dev shells
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   
 # Enable Thunar services for better integration
 programs.thunar = {

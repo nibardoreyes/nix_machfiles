@@ -1,7 +1,6 @@
 /* fragile file path */
 @import url("../../.cache/wal/colors-waybar.css");
-
-/* Use Pywal16 colors  */
+/* Use Pywal16 colors */
 @define-color fg alpha(@background, 1.0);
 @define-color bg alpha(@foreground, 1.0);
 @define-color bordercolor alpha(@background, 1.0);
@@ -13,7 +12,7 @@
 * {
   min-height: 0;
   font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1rem; /* Adjust font using gtk-font size, like nwg-look or lxappearance */
+  font-size: 1rem;
 }
 
 window#waybar {
@@ -21,21 +20,46 @@ window#waybar {
   background-color: @bg;
   background: none;
 }
-#window,
-#workspaces {
+
+#window {
   color: @bordercolor;
-  background-color: @bg;
+  background-color: @color1;  /* Same as bluetooth */
   border: 0.1rem solid @bordercolor;
   border-radius: 0.5rem;
   padding: 0.1rem 0.5rem;
   margin: 0.1rem;
 }
+
+#workspaces {
+  color: @bordercolor;
+  background-color: @color1;  /* Entire workspace pill is bluetooth color (darker) */
+  border: 0.1rem solid @bordercolor;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  margin: 0.1rem;
+}
+
 #workspaces button {
   color: @bordercolor;
-  background-color: @bg;
-  border: 0rem solid @bordercolor;
-  padding: 0.1rem;
+  background-color: transparent;  /* Transparent for inactive */
+  border: 0.1rem solid transparent;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.5rem;
   margin: 0.1rem;
+  transition: all 0.3s ease;
+}
+
+/* Active workspace - temperature color */
+#workspaces button.active {
+  color: @bordercolor;
+  background-color: @color5;  /* Temperature color */
+  border: 0.1rem solid @color5;
+}
+
+/* Hover effect - brightness color */
+#workspaces button:hover {
+  background-color: @color6;  /* Brightness color */
+  border: 0.1rem solid @color6;
 }
 
 #clock,
@@ -70,7 +94,6 @@ window#waybar {
 #custom-separator,
 #custom-group,
 #idle_inhibitor,
-#window,
 #mpd {
   color: @bordercolor;
   background-color: @bg;
@@ -84,43 +107,45 @@ window#waybar {
   color: @bordercolor;
   background-color: @color1;
 }
+
 #battery,
 #network {
   color: @bordercolor;
   background-color: @color2;
 }
+
 #cpu {
   color: @bordercolor;
   background-color: @color3;
 }
+
 #memory {
   color: @bordercolor;
   background-color: @color4;
 }
+
 #temperature {
   color: @bordercolor;
   background-color: @color5;
 }
+
 #custom-notification,
 #backlight {
   color: @bordercolor;
   background-color: @color6;
 }
+
 #pulseaudio,
 #wireplumber {
   color: @bordercolor;
   background-color: @color3;
 }
+
 #clock {
   color: @bordercolor;
   background-color: @color9;
 }
 
-#workspaces,
-#workspaces button {
-  color: @bordercolor;
-  background-color: @color4;
-}
 #tray,
 #tray menu,
 #tray > .needs-attention,
@@ -135,10 +160,6 @@ window#waybar {
   color: @bordercolor;
   background-color: @color5;
   border: 0rem solid @bordercolor;
-}
-#window {
-  color: @bordercolor;
-  background-color: @color6;
 }
 
 #custom-group {

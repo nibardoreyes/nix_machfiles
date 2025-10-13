@@ -111,6 +111,14 @@ boot.loader = {
     fzf
     vscode
     brightnessctl
+    mpv
+    # Volume control
+    pavucontrol      # GUI volume control
+    playerctl        # Media player control (you're already using this)
+    # Bluetooth
+    bluez            # Bluetooth stack
+    bluez-tools      # Bluetooth utilities
+    blueman          # Bluetooth GUI manager
   ];
   
 # Enable Thunar services for better integration
@@ -122,6 +130,21 @@ programs.thunar = {
     thunar-media-tags-plugin
   ];
 };
+
+# Enable Bluetooth
+hardware.bluetooth = {
+  enable = true;
+  powerOnBoot = true;  # Power on Bluetooth on boot
+  settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;  # For better device support
+    };
+  };
+};
+
+# Bluetooth GUI service
+services.blueman.enable = true;
 
 # Enable thumbnail support
 services.tumbler.enable = true;

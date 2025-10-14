@@ -25,8 +25,10 @@ window {
     cursor:                      "default";
     spacing:                     0em;
     padding:                     0em;
-    border-color:                @main-br;
-    background-color:            @main-bg;
+    border:                      2px;
+    border-color:                #2767a8;
+    border-radius:               10px;
+    background-color:            @main-bg;       
 }
 mainbox {
     enabled:                     true;
@@ -44,7 +46,7 @@ dummywall {
     orientation:                 horizontal;
     children:                    [ "mode-switcher" , "inputbar" ];
     background-color:            transparent;
-    background-image:            url("~/.cache/hyde/wall.thmb", height);
+    background-image:            url("~/.config/rofi/background.png", height);  /* Changed path */
 }
 
 
@@ -56,7 +58,7 @@ mode-switcher{
     padding:                     9.2em 0.5em 9.2em 0.5em;
     spacing:                     1.2em;
     background-color:            transparent;
-    background-image:            url("~/.cache/hyde/wall.blur", height);
+    background-image:            url("~/.config/rofi/background.png", height);  /* Changed path */
 }
 button {
     cursor:                      pointer;

@@ -16,6 +16,7 @@
       ./modules/home/tmux
       ./modules/home/scripts
       ./modules/home/yazi
+      ./modules/home/wlogout
    ];
    
   home.username = "nibardo";

@@ -21,7 +21,6 @@
         inherit system;
         modules = [
           ./configuration.nix
-          
           # Import Sugar Candy module
           sddm-sugar-candy-nix.nixosModules.default
           
@@ -42,7 +41,9 @@
       
       homeConfigurations.nibardo = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home.nix ];
+        modules = [ 
+          ./home.nix 
+        ];
       };
     };
 }

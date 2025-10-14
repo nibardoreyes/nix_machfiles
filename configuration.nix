@@ -85,6 +85,7 @@ boot.loader = {
     nwg-look
     fastfetch
     git
+    tmux
     bat
     yazi
     swww

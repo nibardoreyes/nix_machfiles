@@ -80,6 +80,7 @@ boot.loader = {
     gedit
     hyprland
     kitty
+    shotwell
     waybar
     rofi
     nwg-look

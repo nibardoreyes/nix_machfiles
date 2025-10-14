@@ -15,6 +15,7 @@
       ./modules/home/rofi
       ./modules/home/tmux
       ./modules/home/scripts
+      ./modules/home/yazi
    ];
    
   home.username = "nibardo";

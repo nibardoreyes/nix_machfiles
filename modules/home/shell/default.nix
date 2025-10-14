@@ -31,9 +31,11 @@ in
      # Session variables
      sessionVariables = {
        PATH = "$HOME/.scripts:$PATH";
+       EDITOR = "nvim";           # Add this
+       VISUAL = "nvim";           # Add this too
      };
      
-     initExtra = ''  # Use initExtra instead of initContent
+     initContent = ''
        # Import colorscheme from 'wal' asynchronously
        (cat ~/.cache/wal/sequences &)
        

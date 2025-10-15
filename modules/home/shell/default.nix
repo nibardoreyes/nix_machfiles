@@ -68,4 +68,6 @@ in
 
      '';
   };  
+  
+programs.fzf.enable = true;
 }

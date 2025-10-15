@@ -8,7 +8,6 @@
       ./modules/home/waybar
       ./modules/home/fastfetch
       ./modules/home/starship
-      #./modules/home/matugen
       ./modules/home/nvim
       ./modules/home/swaync
       ./modules/home/wofi

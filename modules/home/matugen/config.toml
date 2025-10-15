@@ -1,8 +1,0 @@
-[config]
-path = "home/nibardo/Downloads/test.png"
-
-[templates.kitty]
-input_path = "/home/nibardo/.config/matugen/templates/kitty-colors.conf"
-output_path = "/home/nibardo/.config/kitty/colors.conf"
-post_hook = "pkill -SIGUSR1 kitty"
-

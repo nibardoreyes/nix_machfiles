@@ -85,6 +85,7 @@ boot.loader = {
     wget
     gedit
     hyprland
+    waypaper
     kitty
     shotwell
     waybar

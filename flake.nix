@@ -1,6 +1,5 @@
 {
   description = "Nibardo's NixOS configuration";
-
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
@@ -10,29 +9,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
+  
   outputs = { self, nixpkgs, home-manager, sddm-sugar-candy-nix, ... }:
     let
       system = "x86_64-linux";
     in {
-      # NixOS system configuration
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-
         modules = [
           ./configuration.nix
-          ./modules/system/system.nix
+          # Import Sugar Candy module
+          sddm-sugar-candy-nix.nixosModules.default
+          # Apply overlay BEFORE your theme config
+          {
+            nixpkgs.overlays = [ 
+              sddm-sugar-candy-nix.overlays.default 
+            ];
+          }
+          # Your theme configuration
+          ./modules/system/sddm/default.nix
         ];
-
-        # Pass the SDDM flake module into system.nix
-        specialArgs = { inherit sddm-sugar-candy-nix; };
       };
-
-      # Home Manager configuration
+      
       homeConfigurations.nibardo = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
-          ./modules/home/home.nix
+        modules = [ 
+          ./modules/home/home.nix 
         ];
       };
     };

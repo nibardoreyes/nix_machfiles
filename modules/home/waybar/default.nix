@@ -17,12 +17,6 @@ in
   home.file.".config/waybar/config".source = "${waybarConfigDir}/config";
   home.file.".config/waybar/style.css".source = "${waybarConfigDir}/style.css";
   
-  # Assets directory
-  home.file.".config/waybar/assets" = {
-    source = "${waybarConfigDir}/assets";
-    recursive = true;
-  };
-  
   # Scripts directory
   home.file.".config/waybar/scripts/colorpicker.sh" = {
     source = "${waybarConfigDir}/scripts/colorpicker.sh";

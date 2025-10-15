@@ -26,6 +26,8 @@ in
   programs.zsh = {
      enable = true;
      shellAliases = myAliases;
+     enableCompletion = true;
+     autosuggestion.enable = true;  # This enables zsh-autosuggestions
      
      # Session variables
      sessionVariables = {
@@ -37,6 +39,9 @@ in
      initContent = ''
        # Import colorscheme from 'wal' asynchronously
        (cat ~/.cache/wal/sequences &)
+
+      # Case-insensitive completion
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
        
        # Ctrl+F for fuzzy directory navigation
        bindkey -s '^f' 'source ~/.scripts/fuzzy_dir.sh\n'

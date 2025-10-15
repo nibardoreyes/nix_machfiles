@@ -83,6 +83,9 @@ boot.loader = {
     shotwell
     waybar
     rofi
+    mpd
+    rmpc
+    mpc
     nwg-look
     fastfetch
     git

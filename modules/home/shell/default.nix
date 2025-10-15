@@ -57,6 +57,15 @@ in
          direnv allow
          echo "✨ Python project initialized!"
        }
+  # MPD update and launch function
+  function m() {
+      echo "Updating MPD database..."
+      mpc update
+      echo "Launching rmpc..."
+      rmpc
+  }
+
+
      '';
   };  
 }

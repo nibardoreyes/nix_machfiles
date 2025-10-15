@@ -17,6 +17,9 @@
       ./modules/home/scripts
       ./modules/home/yazi
       ./modules/home/wlogout
+      ./modules/home/mpd
+      ./modules/home/rmpc
+
    ];
    
   home.username = "nibardo";

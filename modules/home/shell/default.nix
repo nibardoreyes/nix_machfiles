@@ -51,7 +51,7 @@ in
        
        # Dev environment templates
        newpy() {
-         cp ~/nixos_machfiles/templates/python-flake.nix ./flake.nix
+         cp ~/nixos_machfiles/modules/templates/python-flake.nix ./flake.nix
          echo "use flake" > .envrc
          direnv allow
          echo "✨ Python project initialized!"

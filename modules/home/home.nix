@@ -1,23 +1,23 @@
 { config, pkgs, ... }:
 { 
    imports = [
-      ./modules/home/shell
-      ./modules/home/kitty
-      ./modules/home/hyprland
-      ./modules/home/hyprlock
-      ./modules/home/waybar
-      ./modules/home/fastfetch
-      ./modules/home/starship
-      ./modules/home/nvim
-      ./modules/home/swaync
-      ./modules/home/wofi
-      ./modules/home/rofi
-      ./modules/home/tmux
-      ./modules/home/scripts
-      ./modules/home/yazi
-      ./modules/home/wlogout
-      ./modules/home/mpd
-      ./modules/home/rmpc
+      ./shell
+      ./kitty
+      ./hyprland
+      ./hyprlock
+      ./waybar
+      ./fastfetch
+      ./starship
+      ./nvim
+      ./swaync
+      ./wofi
+      ./rofi
+      ./tmux
+      ./scripts
+      ./yazi
+      ./wlogout
+      ./mpd
+      ./rmpc
 
    ];
    

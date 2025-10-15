@@ -7,7 +7,6 @@ let
      ls = "eza -l --icons=always";
      la = "eza -la --icons=always";
      lt = "eza --tree --icons=always";
-     e = "yazi";
      # Tmux aliases
      tt = "~/.scripts/startup_tmux.sh";
      ts = "tmux kill-session";
@@ -66,7 +65,7 @@ in
   }
 
     # Yazi cd helper
-    function y() {
+    function e() {
       local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
       yazi "$@" --cwd-file="$tmp"
       local cwd

@@ -23,6 +23,11 @@ boot.loader = {
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 53317 ];
+    allowedUDPPorts = [ 53317 5353 ];
+  };
   # --- Locale & Timezone ---
   time.timeZone = "America/Phoenix";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -84,6 +89,7 @@ boot.loader = {
     shotwell
     waybar
     rofi
+    localsend
     mpd
     rmpc
     mpc
@@ -167,6 +173,12 @@ hardware.bluetooth = {
       Experimental = true;  # For better device support
     };
   };
+};
+
+services.avahi = {
+  enable = true;
+  nssmdns = true;
+  openFirewall = true;
 };
 
 # Bluetooth GUI service

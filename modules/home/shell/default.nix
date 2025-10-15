@@ -65,7 +65,15 @@ in
       rmpc
   }
 
-
+    # Yazi cd helper
+    function y() {
+      local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+      yazi "$@" --cwd-file="$tmp"
+      local cwd
+      IFS= read -r cwd < "$tmp"
+      [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+      rm -f -- "$tmp"
+    }
      '';
   };  
   

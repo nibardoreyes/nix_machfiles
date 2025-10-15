@@ -49,13 +49,6 @@ in
        # Initialize zoxide
        eval "$(zoxide init zsh)"
        
-       # Dev environment templates
-       newpy() {
-         cp ~/nixos_machfiles/modules/templates/python-flake.nix ./flake.nix
-         echo "use flake" > .envrc
-         direnv allow
-         echo "✨ Python project initialized!"
-       }
   # MPD update and launch function
   function m() {
       echo "Updating MPD database..."

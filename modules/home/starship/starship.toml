@@ -155,7 +155,7 @@ symbol = "ℂ "
 [cpp]
 style = "bold bright-cyan"
 format = " [cpp](italic) [$symbol]($style)"
-symbol = " "
+symbol = ""
 
 [kotlin]
 format = " [kotlin](italic) [$symbol]($style)"

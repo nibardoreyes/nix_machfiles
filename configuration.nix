@@ -74,6 +74,7 @@ boot.loader = {
   # --- Packages --- (ONLY ONE DEFINITION!)
   environment.systemPackages = with pkgs; [
     vim
+    kdePackages.dolphin
     neovim
     btop
     wget

@@ -18,6 +18,7 @@
       ./wlogout
       ./mpd
       ./rmpc
+      ./waypaper
 
    ];
    

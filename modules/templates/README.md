@@ -4,7 +4,8 @@
 2. Enter the development environment:
 
 ```bash
-nix develop
-nix develop --rebuild #rebuild environemnt after flake changes
+nix develop --command $SHELL #enter developer environemnt
+nix flake update #update packages added or removed
+nix develop --refresh #refresh after update
 exit # exit developer environment
 ```

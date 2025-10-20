@@ -98,6 +98,7 @@ boot.loader = {
     fastfetch
     git
     tmux
+    discord
     bat
     yazi
     swww

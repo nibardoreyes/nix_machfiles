@@ -125,6 +125,7 @@ boot.loader = {
     vscode
     brightnessctl
     mpv
+    yt-dlp
     tree
     wofi
     obsidian

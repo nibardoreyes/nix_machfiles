@@ -1,5 +1,5 @@
 {
-  description = "Minimal Python project";
+  description = "Minimal JavaScript project";
   
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -10,23 +10,20 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        pythonVersion = pkgs.python312;
-        
-        pythonEnv = pythonVersion.withPackages (ps: with ps; [
-          pandas
-          # Add more packages here
-        ]);
+        nodeVersion = pkgs.nodejs_22;
       in
       {
         devShells.default = pkgs.mkShell {
           packages = [
-            pythonEnv
-            pkgs.ruff  # Fast Python linter
-            pkgs.pyright  # Type checker
+            nodeVersion
+            pkgs.nodePackages.typescript
+            pkgs.nodePackages.eslint
+            # Add more packages here
           ];
           
           shellHook = ''
-            echo "🐍 Python ${pythonVersion.version} environment ready"
+            echo "📦 Node ${nodeVersion.version} environment ready"
+            echo "🔧 npm $(npm --version)"
           '';
         };
       }

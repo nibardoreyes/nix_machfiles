@@ -113,7 +113,8 @@ version_format = "${raw}"
 detect_extensions = []
 detect_files = ["package.json", "package-lock.json", "yarn.lock"]
 detect_folders = ["node_modules"]
-format = "[ ${version}](bold bright-green)"
+format = "[${symbol}${version}](bold bright-green)"
+symbol = ""
 version_format = "${raw}"
 
 [python]

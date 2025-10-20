@@ -11,6 +11,13 @@ let
      tt = "~/.scripts/startup_tmux.sh";
      ts = "tmux kill-session";
      tsv = "tmux kill-server";
+     # Gocrypt
+    vault_open = "gocryptfs ~/.vault/encrypted_vault ~/.vault/open_vault";
+    vault_close= "fusermount -u ~/.vault/open_vault";
+    # Gocrupt ssd
+    ssd_vault_open= "gocryptfs /run/media/nibardo/X1/.vault/encrypted_vault /run/media/nibardo/X1/.vault/open_vault";
+    ssd_vault_close= "fusermount -u /run/media/nibardo/X1/.vault/open_vault";
+
    };
 in
 {

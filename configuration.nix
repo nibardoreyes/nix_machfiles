@@ -103,8 +103,10 @@ boot.loader = {
     yazi
     swww
     lazygit
+    qbittorrent
     eza
     pywal
+    gparted
     imagemagick
     #For thunar
     xfce.thunar
@@ -132,6 +134,7 @@ boot.loader = {
     obsidian
     swaynotificationcenter
     gvfs
+    gocryptfs
     libnotify
     wlogout
     # Volume control

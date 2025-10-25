@@ -126,8 +126,10 @@ boot.loader = {
     bibata-cursors
     fzf
     vscode
+    megasync
     brightnessctl
     mpv
+    impression
     yt-dlp
     tree
     wofi

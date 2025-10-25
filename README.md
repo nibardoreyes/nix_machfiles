@@ -30,3 +30,9 @@ sudo nix-collect-garbage --delete-older-than 14d
 # ---------------------------
 # Deduplicates identical files in /nix/store to save more space
 # nix-store --optimize
+
+
+
+
+## Initial home-manager setup command
+sudo nix run nixpkgs#home-manager -- init --switch

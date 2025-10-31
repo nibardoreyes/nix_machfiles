@@ -73,7 +73,7 @@ environment.sessionVariables = {
   users.users.nibardo = {
     isNormalUser = true;
     description = "Nibardo";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout"];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
